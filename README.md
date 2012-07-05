@@ -5,5 +5,6 @@ This plugin can be used to remove selected options on pages where identical sele
 ## Usage
 
 To use, select the group of select boxes, and call the method directly on it. 
+
 	$('select.groceries').mutuallyExclusive();
-	
+
