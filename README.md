@@ -9,7 +9,7 @@ To use, select the group of select boxes, and call the method directly on it.
 `$("select.groceries").mutuallyExclusive();`
 
 check out how it works on JSFiddle:
-http://jsfiddle.net/NH874/5/
+http://jsfiddle.net/NH874/6/
 
 
 
