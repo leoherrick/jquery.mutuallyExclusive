@@ -8,7 +8,7 @@ For example, say you have a form that has two dropdown menus, each containing a 
 
 To use, select the group of select boxes, and call the method directly on it. 
 
-#### Markup
+#### sample markup
 
 ```HTML
 <select class="colors">
@@ -26,7 +26,7 @@ To use, select the group of select boxes, and call the method directly on it.
 </select>
 ```
 
-#### The Javascript
+#### sample javascript
 
 ```Javascript
 $("select.colors").mutuallyExclusive();
@@ -34,7 +34,7 @@ $("select.colors").mutuallyExclusive();
 
 #### An example on JSFiddle
 check out how it works on JSFiddle:
-http://jsfiddle.net/NH874/6/
+http://jsfiddle.net/NH874/7/
 
 
 
