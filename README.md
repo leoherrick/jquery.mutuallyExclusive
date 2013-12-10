@@ -39,6 +39,5 @@ http://jsfiddle.net/NH874/15/
 
 
 
-
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/leoherrick/jquery.mutuallyexclusive/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
