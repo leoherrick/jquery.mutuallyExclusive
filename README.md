@@ -34,7 +34,7 @@ $("select.colors").mutuallyExclusive();
 
 #### an example on JSFiddle:
 check out how it works on JSFiddle:
-http://jsfiddle.net/NH874/7/
+http://jsfiddle.net/NH874/15/
 
 
 
