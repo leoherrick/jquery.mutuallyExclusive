@@ -1,79 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Jquery.mutuallyexclusive : Mutually Exclusive JQuery Plugin" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jquery.mutuallyexclusive by leoherrick</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Jquery.mutuallyexclusive</title>
   </head>
-
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/leoherrick/jquery.mutuallyExclusive">View on GitHub</a>
+      <header>
+        <h1>Jquery.mutuallyexclusive</h1>
+        <p>Mutually Exclusive JQuery Plugin</p>
+      </header>
 
-          <h1 id="project_title">Jquery.mutuallyexclusive</h1>
-          <h2 id="project_tagline">Mutually Exclusive JQuery Plugin</h2>
+      <div id="banner">
+        <span id="logo"></span>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/leoherrick/jquery.mutuallyExclusive/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/leoherrick/jquery.mutuallyExclusive/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <a href="https://github.com/leoherrick/jquery.mutuallyExclusive" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/leoherrick/jquery.mutuallyExclusive/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/leoherrick/jquery.mutuallyExclusive/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-mutually-exclusive" class="anchor" href="#welcome-to-mutually-exclusive"><span class="octicon octicon-link"></span></a>Welcome to Mutually Exclusive</h3>
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="jquerymutuallyexclusive" class="anchor" href="#jquerymutuallyexclusive"><span class="octicon octicon-link"></span></a>jquery.mutuallyExclusive</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>This plugin can be applied to sets of identical dropdown menus on a page. When applied, it keeps track of which items have been chosen and removes those items from other dropdowns on the page. </p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>For example, say you have a form with two identical menus, each containing a list of colors. If an option with the value "blue" is slected in the first menu, the option with value "blue" would it would be <em>removed</em> from the second one. If "blue" is subsequently unslected, it will be <em>added back</em>.</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<p>To use, select the group of select boxes, and call the method on it. </p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<h4>
+<a name="sample-markup" class="anchor" href="#sample-markup"><span class="octicon octicon-link"></span></a>sample markup:</h4>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"colors"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>--Select Your Favorite Color--<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"red"</span><span class="nt">&gt;</span>Red<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"white"</span><span class="nt">&gt;</span>White<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"blue"</span><span class="nt">&gt;</span>Blue<span class="nt">&lt;/option&gt;</span> 
+<span class="nt">&lt;/select&gt;</span>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"colors"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>--Select Your Favorite Color--<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"red"</span><span class="nt">&gt;</span>Red<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"white"</span><span class="nt">&gt;</span>White<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"blue"</span><span class="nt">&gt;</span>Blue<span class="nt">&lt;/option&gt;</span> 
+<span class="nt">&lt;/select&gt;</span>
+</pre></div>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<h4>
+<a name="sample-javascript" class="anchor" href="#sample-javascript"><span class="octicon octicon-link"></span></a>sample javascript:</h4>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<div class="highlight highlight-Javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"select.colors"</span><span class="p">).</span><span class="nx">mutuallyExclusive</span><span class="p">();</span>
+</pre></div>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<h4>
+<a name="an-example-on-jsfiddle" class="anchor" href="#an-example-on-jsfiddle"><span class="octicon octicon-link"></span></a>an example on JSFiddle:</h4>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>check out how it works on JSFiddle:
+<a href="http://jsfiddle.net/NH874/15/">http://jsfiddle.net/NH874/15/</a></p>
+
+<p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/leoherrick/jquery.mutuallyexclusive/trend.png" alt="Bitdeli Badge"></a></p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Jquery.mutuallyexclusive maintained by <a href="https://github.com/leoherrick">leoherrick</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/leoherrick">leoherrick</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
-
   </body>
 </html>
