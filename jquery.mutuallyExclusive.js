@@ -1,6 +1,10 @@
 (function($){
-    $.fn.mutuallyExclusive = function() {
-        var $all_selects = this; // We'll keep around a reference to the collection of select elements
+
+    // Define a reference for all selects so it will be available within the closure
+    var $all_selects = null;
+
+    // Define the plugin function
+    var mutuallyExclusive = function(elem) {
 
         // Right off the bat, store an original copy of all options in each select element
         $all_selects.each(function() {
@@ -53,8 +57,21 @@
 
         // We'll register an event listener that will update the select fields whenever a selected
         // option in changed in a select element.
-        $(this).change(function() {
+        elem.change(function() {
             updateSelectElements();
         });
     };
+
+
+    // Register the plugin
+    $.fn.mutuallyExclusive = function() {
+        // Populate the all_selects object
+        $all_selects = this;
+        // Return jQuery for chaining
+        return this.each(function() {
+            new mutuallyExclusive($(this));
+        });
+    };
+
+
 })(jQuery);
