@@ -3,6 +3,11 @@
     // Define a reference for all selects so it will be available within the closure
     var $all_selects = null;
 
+    // Default options object
+    var $options = {
+        remove: true
+    }
+
     // Define the plugin function
     var mutuallyExclusive = function(elem) {
 
@@ -33,7 +38,9 @@
                     var $siblings_selected_options = $all_selects.not($select).find('option:selected');
 
                     // Load the original, complete options list back into this select element
-                    $select.html($select.data('original_option_list'));
+                    $select.html($select.data('original_option_list'))
+                        // Remove the disabled attribute
+                        .find('option').removeAttr('disabled');
 
                     // Now that we reloaded the original options, lets reselect the option that was previously selected
                     $select.find('option[value="' + currently_selected_val + '"]').attr("selected", "selected");
@@ -41,7 +48,11 @@
                     // Finally, remove the options that have been selected in the other select elements and we're all set!
                     $siblings_selected_options.each(function() {
                         if ($(this).val() != "") {
-                            $select.find('option[value="' + $(this).val() + '"]').remove();
+                            if($options.remove) {
+                                $select.find('option[value="' + $(this).val() + '"]').remove();
+                            } else {
+                                $select.find('option[value="' + $(this).val() + '"]').attr('disabled','disabled');
+                            }
                         }
                     });
 
@@ -64,7 +75,9 @@
 
 
     // Register the plugin
-    $.fn.mutuallyExclusive = function() {
+    $.fn.mutuallyExclusive = function(options) {
+        // Set user options
+        $options = $.extend($options, options);
         // Populate the all_selects object
         $all_selects = this;
         // Return jQuery for chaining
