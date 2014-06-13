@@ -6,7 +6,7 @@
     // Default options object
     var $options = {
         remove: true
-    }
+    };
 
     // Define the plugin function
     var mutuallyExclusive = function(elem) {
