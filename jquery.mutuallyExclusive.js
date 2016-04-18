@@ -11,11 +11,6 @@
     // Define the plugin function
     var mutuallyExclusive = function(elem) {
 
-        // Right off the bat, store an original copy of all options in each select element
-        $all_selects.each(function() {
-            $(this).data('original_option_list', $(this).find('option'));
-        });
-
         // This function takes care of updating the state of each select element appropriately
         // based on the options selected in the other select elements.
         function updateSelectElements() {
@@ -80,6 +75,10 @@
         $options = $.extend($options, options);
         // Populate the all_selects object
         $all_selects = this;
+        // Right off the bat, store an original copy of all options in each select element
+        $all_selects.each(function() {
+            $(this).data('original_option_list', $(this).find('option'));
+        });
         // Return jQuery for chaining
         return this.each(function() {
             new mutuallyExclusive($(this));
