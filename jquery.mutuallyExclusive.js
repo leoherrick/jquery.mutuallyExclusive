@@ -38,7 +38,7 @@
                         .find('option').removeAttr('disabled');
 
                     // Now that we reloaded the original options, lets reselect the option that was previously selected
-                    $select.find('option[value="' + currently_selected_val + '"]').attr("selected", "selected");
+                    $select.val(currently_selected_val);
 
                     // Finally, remove the options that have been selected in the other select elements and we're all set!
                     $siblings_selected_options.each(function() {
